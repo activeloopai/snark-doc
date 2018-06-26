@@ -39,6 +39,9 @@ You can push/pull data to the pod by snark pull and snark push.
 
 ### Download Files
 ```bash
+$ snark pull -i kaggle_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+```
+```bash
 $ snark pull --help
 Usage: snark pull [OPTIONS]
 
@@ -52,6 +55,9 @@ Options:
 ```
 
 ### Upload Files
+```bash
+$ snark push -i kaggle_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+```
 ```bash
 $ snark push --help
 Usage: snark push [OPTIONS]
