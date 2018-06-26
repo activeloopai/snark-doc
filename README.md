@@ -1,5 +1,5 @@
 
-![alt text](https://avatars3.githubusercontent.com/u/34816118?s=200&v=4 "Logo Title Text 1")
+![alt text](https://avatars3.githubusercontent.com/u/34816118?s=200&v=4 "Logo Title Text 1" | width=20)
 
 # Basic Usage
 **Step 1**. Install snark through pip3
