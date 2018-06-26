@@ -55,7 +55,10 @@ Options:
   -r, --remote_path TEXT  Path to file on the Pod.
   --help                  Show this message and exit.
 ```
-Note: 
+Note: if you want use `~'` or `\*` when specifying remote file path, please take them in quotes. Eg:
+```
+snark push --pod_id kaggle_pod -r "~/test.txt" -l test.txt
+```
 
 # Persistent Storage
 There's no Persistent storage on the pod -- your files will be gone when you stop your pod. Before you stop the pod, please push your code to `git` and save other files through `snark pull`. 
@@ -68,7 +71,7 @@ Common datasets from Kaggle competitions and more are accessible (read only) at 
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
 
 # GPU spec and Pricing 
-The GPU's you'll get right now are NVIDIA P106, which is slighlty faster than NVIDIA K80 for machine learning purposes. We're currently working on providing 1080's, stay tuned! 
+The GPU's you'll get right now are NVIDIA P106, which is slighlty faster than NVIDIA K80 for machine learning purposes. We're currently working on providing 1080's.
 
 You'll be billed **9.5 cents** per hour of GPU time, which is much cheaper than anywhere else.
 
