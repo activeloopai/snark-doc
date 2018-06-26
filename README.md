@@ -22,12 +22,12 @@ Other available pod types:
  - **theano**: theano version 0.8.2 with cuda 8, cudnn 5 in python 3
  - **caffe** : caffe version 1.0 with cuda 8, cudnn 6 in python 3
 
-Step 4. Stop the pod by
+**Step 4**. Stop the pod by
 ```
 $ snark stop --pod_id kagglepod
 ```
 
-# Data Transfer
+# File Transfer
 You can push/pull data to the pod by snark pull and snark push. 
 ```bash
 $ snark pull --help
@@ -55,6 +55,7 @@ Options:
   -r, --remote_path TEXT  Path to file on the Pod.
   --help                  Show this message and exit.
 ```
+Note: 
 
 # Persistent Storage
 Default pods are meant for one time use, which means files will be gone when you stop your pod. Please necessary files through `pull`/`git` before stopping your pod. 
@@ -65,3 +66,10 @@ Common datasets from Kaggle competitions and more are accessible (read only) at 
 
 # Usage Monitor
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
+
+# GPU spec and Pricing 
+The GPU's you'll get right now are NVIDIA P106, which is slighlty faster than NVIDIA K80 for machine learning purposes. We're currently working on providing 1080's, stay tuned! 
+
+You'll be billed **9.5 cents** per hour of GPU time, which is much cheaper than anywhere else.
+
+Our new custormes get **1.5 hours** of free GPU time to play around!
