@@ -1,6 +1,5 @@
 
-![alt text](https://avatars3.githubusercontent.com/u/34816118?s=200&v=4 "Logo")
-<img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="200" height="400" />
+<img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="50" height="50" /> **Snark AI**
 
 # Basic Usage
 **Step 1**. Install snark through pip3
