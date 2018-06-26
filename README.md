@@ -58,7 +58,7 @@ Options:
 Note: 
 
 # Persistent Storage
-Default pods are meant for one time use, which means files will be gone when you stop your pod. Please necessary files through `pull`/`git` before stopping your pod. 
+There's no Persistent storage on the pod -- your files will be gone when you stop your pod. Before you stop the pod, please push your code to `git` and save other files through `snark pull`. 
 
 If you would like to create a persistant pod, shoot us an email at *support@snark.ai*. 
 
