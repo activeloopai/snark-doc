@@ -1,3 +1,6 @@
+
+![alt text](https://avatars3.githubusercontent.com/u/34816118?s=200&v=4 "Logo Title Text 1")
+
 # Basic Usage
 **Step 1**. Install snark through pip3
 ```
@@ -71,7 +74,7 @@ Common datasets from Kaggle competitions and more are accessible (read only) at 
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
 
 # GPU spec and Pricing 
-The GPU's you'll get right now are NVIDIA P106, which is slighlty faster than NVIDIA K80 for machine learning purposes. We're currently working on providing 1080's.
+Right now we are providing NVIDIA P106 GPUs. For machine learning, these GPUs are slighlty faster than NVIDIA K80. We're currently working on providing 1080's.
 
 You'll be billed **9.5 cents** per hour of GPU time, which is much cheaper than anywhere else.
 
