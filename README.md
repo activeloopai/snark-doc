@@ -1,6 +1,6 @@
 
-![alt text](https://avatars3.githubusercontent.com/u/34816118?s=200&v=4 "Logo" width=10)
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
+![alt text](https://avatars3.githubusercontent.com/u/34816118?s=200&v=4 "Logo")
+<img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="200" height="400" />
 
 # Basic Usage
 **Step 1**. Install snark through pip3
