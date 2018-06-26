@@ -59,9 +59,9 @@ Options:
 # Persistent Storage
 Default pods are meant for one time use, which means files will be gone when you stop your pod. Please necessary files through `pull`/`git` before stopping your pod. 
 
-If you would like to create a persistant pod, shoot us an email at [support@snark.ai]. 
+If you would like to create a persistant pod, shoot us an email at *support@snark.ai*. 
 
-Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, let us know! [support@snark.ai] 
+Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, let us know! *support@snark.ai*
 
 # Usage Monitor
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
