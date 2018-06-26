@@ -1,5 +1,5 @@
 
-# <img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="50" height="50" /> Basic Usage
+# <img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="30" height="30" /> Snark AI
 
 # Basic Usage
 **Step 1**. Install snark through pip3
