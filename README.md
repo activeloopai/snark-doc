@@ -2,7 +2,8 @@
 # <img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="40" height="40" /> Snark AI
 
 ## Basic Usage
-**Step 1**. Install snark through pip3
+#### Step 1
+Install snark through pip3
 ```
 $ pip3 install snark --user
 ```
@@ -32,6 +33,9 @@ $ snark stop --pod_id kagglepod
 
 ## File Transfer
 You can push/pull data to the pod by snark pull and snark push. 
+
+
+### Download Files
 ```bash
 $ snark pull --help
 Usage: snark pull [OPTIONS]
@@ -45,7 +49,7 @@ Options:
   --help                  Show this message and exit.
 ```
 
-
+### Upload Files
 ```bash
 $ snark push --help
 Usage: snark push [OPTIONS]
