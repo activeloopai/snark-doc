@@ -90,4 +90,4 @@ Right now we are providing NVIDIA P106 GPUs. For machine learning, these GPUs ar
 
 You'll be billed **9.5 cents** per hour of GPU time, which is much cheaper than anywhere else.
 
-Our new custormes get **1.5 hours** of free GPU time to play around!
+Our new custormes get **2.0 hours** of free GPU time to play around!
