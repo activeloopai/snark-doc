@@ -1,34 +1,31 @@
 # Basic Usage
-Step 1. Install snark through pip3
+**Step 1**. Install snark through pip3
 ```
 $ pip3 install snark --user
 ```
 
-Step 2. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
+**Step 2**. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
 ```
 $ snark login
 ```
 It will ask you for username and password that you registered on the website.
 
-Step 3. You can start your pod by 
+**Step 3**. You can start your pod by 
 ```
 $ snark start --pod_id  kagglepod  --pod_type tensorflow  -g 2
 ```
 tensorflow pod has TF version 1.8.0 with cuda 9 , cudnn 7 in python3 and keras frontend. -g 2 means 2 GPUs.  You will directly login to your pod.
 
 Other available pod types: 
- - pytorch: pytorch version 0.4.0 with cuda 9, cudnn 7 in python 3. Caffe2 is also installed in the pod
- - mxnet: mxnet version 1.0.0 with cuda 9, cudnn 7 in python 3.
- - theano: theano version 0.8.2 with cuda 8, cudnn 5 in python 3
- - caffe: caffe version 1.0 with cuda 8, cudnn 6 in python 3
+ - **pytorch**: pytorch version 0.4.0 with cuda 9, cudnn 7 in python 3. Caffe2 is also installed in the pod
+ - **mxnet**: mxnet version 1.0.0 with cuda 9, cudnn 7 in python 3.
+ - **theano**: theano version 0.8.2 with cuda 8, cudnn 5 in python 3
+ - **caffe** : caffe version 1.0 with cuda 8, cudnn 6 in python 3
 
 Step 4. Stop the pod by
 ```
 $ snark stop --pod_id kagglepod
 ```
-
-# Persistent Storage
-Note that your files will be gone when you stop your pod. Please pull data to your local dir before stopping the pod.
 
 # Data Transfer
 You can push/pull data to the pod by snark pull and snark push. 
@@ -58,6 +55,13 @@ Options:
   -r, --remote_path TEXT  Path to file on the Pod.
   --help                  Show this message and exit.
 ```
+
+# Persistent Storage
+Default pods are meant for one time use, which means files will be gone when you stop your pod. Please necessary files through `pull`/`git` before stopping your pod. 
+
+If you would like to create a persistant pod, shoot us an email at [support@snark.ai]. 
+
+Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, let us know! [support@snark.ai] 
 
 # Usage Monitor
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
