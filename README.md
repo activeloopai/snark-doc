@@ -21,7 +21,7 @@ tensorflow pod has TF version 1.8.0 with cuda 9 , cudnn 7 in python3 and keras f
 
 Our available pod types:  
  - **tensorflow/keras**: tensorflow version 1.8.0 with cuda 9, cudnn 7 in python3. Keras is installed in the pod.
- - **pytorch/caffe**: pytorch version 0.4.0 with cuda 9, cudnn 7 in python 3. Caffe2 is also installed in the pod
+ - **pytorch/caffe2**: pytorch version 0.4.0 with cuda 9, cudnn 7 in python 3. Caffe2 is also installed in the pod
  - **mxnet**: mxnet version 1.0.0 with cuda 9, cudnn 7 in python 3.
  - **theano**: theano version 0.8.2 with cuda 8, cudnn 5 in python 3
  - **caffe** : caffe version 1.0 with cuda 8, cudnn 6 in python 3
