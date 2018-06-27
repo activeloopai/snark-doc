@@ -85,9 +85,5 @@ Common datasets from Kaggle competitions and more are accessible (read only) at 
 ## Usage Monitor
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
 
-## GPU spec and Pricing 
+## GPU spec
 Right now we are providing NVIDIA P106 GPUs. For machine learning, these GPUs are slighlty faster than NVIDIA K80. We're currently working on providing 1080's.
-
-You'll be billed **9.5 cents** per hour of GPU time, which is much cheaper than anywhere else.
-
-Our new custormes get **2.0 hours** of free GPU time to play around!
