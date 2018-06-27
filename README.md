@@ -4,18 +4,18 @@
 ## Basic Usage
 **Step 1**. Install snark through pip3
 ```
-$ pip3 install snark --user
+pip3 install snark --user
 ```
 
 **Step 2**. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
 ```
-$ snark login
+snark login
 ```
 It will ask you for username and password that you registered on the website.
 
 **Step 3**. You can start your pod by 
 ```
-$ snark start --pod_id  kagglepod  --pod_type tensorflow  -g 2
+snark start --pod_id  my_pod  --pod_type tensorflow  -g 2
 ```
 tensorflow pod has TF version 1.8.0 with cuda 9 , cudnn 7 in python3 and keras frontend. -g 2 means 2 GPUs.  You will directly login to your pod. You will have sudo access with password `admin`. We use key-based authentication and block password login to your pod so no need to worry about the weak password. 
 
@@ -28,11 +28,18 @@ Our available pod types:
 
 **Step 4**. Stop the pod by
 ```
-$ snark stop --pod_id kagglepod
+snark stop --pod_id my_pod
 ```
 
-
+**List active pods**
 Use `snark ls` to list your active pods.
+
+**Reconnect to an active pod**
+To reconnect to an active pod, simply execute
+```
+snark start --pod_id my_pod
+```
+Your pod will not be restarted.
 
 ## File Transfer
 You can push/pull data to the pod by snark pull and snark push. Use it as a convenient replacement for `scp`. 
@@ -40,7 +47,7 @@ You can push/pull data to the pod by snark pull and snark push. Use it as a conv
 
 ### Download Files
 ```bash
-$ snark pull -i kaggle_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+snark pull -i my_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
 ```
 ```bash
 $ snark pull --help
@@ -57,7 +64,7 @@ Options:
 
 ### Upload Files
 ```bash
-$ snark push -i kaggle_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+snark push -i kaggle_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
 ```
 ```bash
 $ snark push --help
