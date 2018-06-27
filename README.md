@@ -17,7 +17,7 @@ It will ask you for username and password that you registered on the website.
 ```
 $ snark start --pod_id  kagglepod  --pod_type tensorflow  -g 2
 ```
-tensorflow pod has TF version 1.8.0 with cuda 9 , cudnn 7 in python3 and keras frontend. -g 2 means 2 GPUs.  You will directly login to your pod. You will have sudo access with password admin. We use key-based ssh authentication and block password login to your pod so no need to worry about the weak password. 
+tensorflow pod has TF version 1.8.0 with cuda 9 , cudnn 7 in python3 and keras frontend. -g 2 means 2 GPUs.  You will directly login to your pod. You will have sudo access with password `admin`. We use key-based authentication and block password login to your pod so no need to worry about the weak password. 
 
 Our available pod types:  
  - **tensorflow/keras**: tensorflow version 1.8.0 with cuda 9, cudnn 7 in python3. Keras is installed in the pod.
