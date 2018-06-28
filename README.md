@@ -32,9 +32,11 @@ snark stop --pod_id my_pod
 ```
 
 **List active pods**
+
 Use `snark ls` to list your active pods.
 
 **Reconnect to an active pod**
+
 To reconnect to an active pod, simply execute
 ```
 snark start --pod_id my_pod
