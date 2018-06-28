@@ -90,7 +90,7 @@ There's no Persistent storage on the pod -- your files will be gone when you sto
 
 If you would like to create a persistant pod, shoot us an email at *support@snark.ai*. 
 
-Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, let us know! *support@snark.ai*
+Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, reach out to us at *support@snark.ai*.
 
 ## Usage Monitor
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
