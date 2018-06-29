@@ -64,6 +64,14 @@ export PATH=$PY_USER_BIN:$PATH
 ```
 source ~/.bashrc
 ```
+#### Snark Not Found
+If you tried all above and still get `snark not found` error message, try:
+1) Updating your pip3 through `pip3 install --upgrade pip3`
+2) Try installing specific version through tarball:
+```
+pip3 uninstall snark
+pip3 install https://files.pythonhosted.org/packages/53/77/d3844b92e626f673cb86c7498a1dff10c76b47593a342729e50cff9af8f3/snark-0.2.1.8.tar.gz
+```
 ## File Transfer
 You can push/pull data to the pod by snark pull and snark push. Use it as a convenient replacement for `scp`. 
 
