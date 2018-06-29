@@ -4,7 +4,7 @@
 ## Basic Usage
 **Step 1**. Install snark through pip3
 ```
-pip3 install snark --user
+pip3 install snark
 ```
 
 **Step 2**. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
