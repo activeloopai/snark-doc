@@ -6,13 +6,13 @@
 ```
 pip3 install snark
 ```
-**Troubleshooting**
+#### Troubleshooting
 
-1. If you get a `Permission denied` message:
+##### If you get a `Permission denied` message:
 ```
 sudo pip3 install snark
 ```
-2. If you don't have `sudo` access:
+##### If you don't have `sudo` access:
 ```
 pip3 install snark --user
 ```
