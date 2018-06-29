@@ -18,7 +18,7 @@ pip3 install snark --user
 ```
 **AND** add the following to your `~/.bashrc` file:
 ```
-export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
+export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
 export PATH=$PY_USER_BIN:$PATH
 ```
 **AND** reload your `~/.bashrc`:
