@@ -6,7 +6,7 @@
 ```
 pip3 install snark
 ```
-If you're having difficulties with installation, take a look at the troubleshooting section.
+If you're having difficulties with installation, take a look at the troubleshooting section. [link text](#abcd)
 
 **Step 2**. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
 ```
@@ -43,6 +43,8 @@ To reconnect to an active pod, simply execute
 snark start --pod_id my_pod
 ```
 Your pod will not be restarted.
+
+<a name="abcd"></a>
 ### Troubleshooting
 
 #### If you get a `Permission denied` message:
