@@ -6,27 +6,7 @@
 ```
 pip3 install snark
 ```
-#### Troubleshooting
-
-##### If you get a `Permission denied` message:
-```
-sudo pip3 install snark
-```
-##### If you don't have `sudo` access:
-```
-pip3 install snark --user
-```
-**AND** add the following to your `~/.bashrc` file:
-```
-export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
-export PATH=$PY_USER_BIN:$PATH
-```
-**AND** reload your `~/.bashrc`:
-```
-source ~/.bashrc
-```
-
-If you don't have sudo access,
+If you're having difficulties with installation, take a look at the troubleshooting section.
 
 **Step 2**. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
 ```
@@ -63,7 +43,25 @@ To reconnect to an active pod, simply execute
 snark start --pod_id my_pod
 ```
 Your pod will not be restarted.
+### Troubleshooting
 
+#### If you get a `Permission denied` message:
+```
+sudo pip3 install snark
+```
+#### If you don't have `sudo` access:
+```
+pip3 install snark --user
+```
+**AND** add the following to your `~/.bashrc` file:
+```
+export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
+export PATH=$PY_USER_BIN:$PATH
+```
+**AND** reload your `~/.bashrc`:
+```
+source ~/.bashrc
+```
 ## File Transfer
 You can push/pull data to the pod by snark pull and snark push. Use it as a convenient replacement for `scp`. 
 
