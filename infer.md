@@ -13,10 +13,8 @@ pip3 install snark --user
 **Step 3** open Python and write
 ``` python
 import numpy as np
-import snark
+from snark.infer import model
 
-snark.auth(token=’YOUR_AUTHENTICATION_TOKEN’)
-
-alexnet = snark.model(model_name=’snarkai/AlexNet:latest')
+alexnet = model(model_name='snarkai/AlexNet:latest')
 output = alexnet.infer(np.zeros([1, 3, 224, 224]))
 ```
