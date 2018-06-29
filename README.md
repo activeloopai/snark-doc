@@ -6,6 +6,26 @@
 ```
 pip3 install snark
 ```
+**Troubleshooting**
+If you get a `Permission denied` message:
+```
+sudo pip3 install snark
+```
+If you don't have `sudo` access:
+```
+pip3 install snark --user
+```
+**AND** add the following to your `~/.bashrc` file:
+```
+export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
+export PATH=$PY_USER_BIN:$PATH
+```
+**AND** reload your `~/.bashrc`:
+```
+source ~/.bashrc
+```
+
+If you don't have sudo access,
 
 **Step 2**. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
 ```
