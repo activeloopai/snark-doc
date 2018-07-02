@@ -16,7 +16,11 @@ It will ask you for username and password that you registered on the website.
 
 **Step 3**. You can start your pod by 
 ```
-snark start --pod_id  my_pod  --pod_type tensorflow  -g 2
+snark start
+```
+This will create a pod with default configuration. You can create a custom pod by specifying the following parameters:
+```
+snark start tf_pod  --pod_type tensorflow  -g 2
 ```
 tensorflow pod has TF version 1.8.0 with cuda 9 , cudnn 7 in python3 and keras frontend. -g 2 means 2 GPUs.  You will directly login to your pod. You will have sudo access with password `admin`. We use key-based authentication and block password login to your pod so no need to worry about the weak password. 
 
