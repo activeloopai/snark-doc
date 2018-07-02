@@ -18,11 +18,21 @@ It will ask you for username and password that you registered on the website.
 ```
 snark start
 ```
-This will create a pod with default configuration. You can create a custom pod by specifying the following parameters:
+This will create a pod with default configuration. By default, your pod will have one P106 GPU and will have pytorch preinstalled. You can create a custom pod by specifying the following parameters:
+```
+  -t, --pod_type [pytorch|tensorflow|theano|mxnet|caffe]
+                                  Pody type (['pytorch', 'tensorflow',
+                                  'theano', 'mxnet', 'caffe'])
+  -g, --gpu_count INTEGER         Number of GPUs
+  -s, --gpu_spec [P106-100|1080]  GPU type. Choose one of: ['P106-100',
+                                  '1080']
+```
+For example, the following command creates a Tensorflow pod with 2 P106 GPUs. The pod is named "tf_pod".
 ```
 snark start tf_pod  --pod_type tensorflow  -g 2
 ```
-tensorflow pod has TF version 1.8.0 with cuda 9 , cudnn 7 in python3 and keras frontend. -g 2 means 2 GPUs.  You will directly login to your pod. You will have sudo access with password `admin`. We use key-based authentication and block password login to your pod so no need to worry about the weak password. 
+
+You will have sudo access with password `admin`. We use key-based authentication and block password login to your pod so no need to worry about the weak password. 
 
 Our available pod types:  
  - **tensorflow/keras**: tensorflow version 1.8.0 with cuda 9, cudnn 7 in python3. Keras is installed in the pod.
@@ -33,7 +43,7 @@ Our available pod types:
 
 **Step 4**. Stop the pod by
 ```
-snark stop --pod_id my_pod
+snark stop my_pod
 ```
 
 **List active pods**
@@ -42,9 +52,9 @@ Use `snark ls` to list your active pods.
 
 **Reconnect to an active pod**
 
-To reconnect to an active pod, simply execute
+To reconnect to an active pod, execute a start command and specify the id of the pod that you want to resume.
 ```
-snark start --pod_id my_pod
+snark start my_pod
 ```
 Your pod will not be restarted.
 
@@ -82,7 +92,7 @@ You can push/pull data to the pod by snark pull and snark push. Use it as a conv
 
 ### Download Files
 ```bash
-snark pull -i my_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+snark pull my_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
 ```
 ```bash
 $ snark pull --help
@@ -91,7 +101,6 @@ Usage: snark pull [OPTIONS]
   Transfer file from the pod to the localhost
 
 Options:
-  -p, --pod_id TEXT       Pod ID
   -r, --remote_path TEXT  Path to file on the Pod.
   -l, --local_path TEXT   Path to file on local machine.
   --help                  Show this message and exit.
@@ -99,7 +108,7 @@ Options:
 
 ### Upload Files
 ```bash
-snark push -i kaggle_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+snark push my_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
 ```
 ```bash
 $ snark push --help
@@ -108,7 +117,6 @@ Usage: snark push [OPTIONS]
   Transfer file to the pod
 
 Options:
-  -p, --pod_id TEXT       Pod ID
   -l, --local_path TEXT   Path to file on local machine.
   -r, --remote_path TEXT  Path to file on the Pod.
   --help                  Show this message and exit.
