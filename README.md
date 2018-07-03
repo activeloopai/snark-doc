@@ -29,7 +29,7 @@ This will create a pod with default configuration. By default, your pod will hav
 ```
 For example, the following command creates a Tensorflow pod with 2 P106 GPUs. The pod is named "tf_pod".
 ```
-snark start tf_pod  --pod_type tensorflow  -g 2
+snark start tf_pod --pod_type tensorflow  -g 2
 ```
 
 You will have sudo access with password `admin`. We use key-based authentication and block password login to your pod so no need to worry about the weak password. 
@@ -123,7 +123,7 @@ Options:
 ```
 Note: if you want use `~'` or `\*` when specifying remote file path, please take them in quotes. Eg:
 ```
-snark push --pod_id kaggle_pod -r "~/test.txt" -l test.txt
+snark push kaggle_pod -r "~/test.txt" -l test.txt
 ```
 
 ## Persistent Storage
