@@ -24,7 +24,7 @@ This will create a pod with default configuration. By default, your pod will hav
                                   Pody type (['pytorch', 'tensorflow',
                                   'theano', 'mxnet', 'caffe'])
   -g, --gpu_count INTEGER         Number of GPUs
-  -s, --gpu_spec [P106-100|1080]  GPU type. Choose one of: ['P106-100',
+  -s, --gpu_spec [P106|1080]  GPU type. Choose one of: ['P106',
                                   '1080']
 ```
 For example, the following command creates a Tensorflow pod with 2 P106 GPUs. The pod is named "tf_pod".
@@ -46,17 +46,23 @@ Our available pod types:
 snark stop my_pod
 ```
 
+
 **List active pods**
 
 Use `snark ls` to list your active pods.
 
 **Reconnect to an active pod**
 
-To reconnect to an active pod, execute a start command and specify the id of the pod that you want to resume.
+To reconnect to an active pod, execute an `attach` command and specify the id of the pod that you want to resume.
 ```
-snark start my_pod
+snark attach my_pod
 ```
-Your pod will not be restarted.
+
+**Change pod hardware characteristics**
+Currently, each pod is tied to the GPU time it was first run on. If you want to try to try different GPU types, change the pod_id:
+```
+snark start tf_pod2 --pod_type tensorflow  --gpu_spec 1080
+```
 
 <a name="troubleshooting"></a>
 ### Troubleshooting
@@ -127,14 +133,11 @@ snark push kaggle_pod -r "~/test.txt" -l test.txt
 ```
 
 ## Persistent Storage
-There's no Persistent storage on the pod -- your files will be gone when you stop your pod. Before you stop the pod, please push your code to `git` and save other files through `snark pull`. 
+Each pod comes with 10GB of persistant storage. This storage will be destroyed only when you use `snark terminate` to destroy your pod. 
 
-If you would like to create a persistant pod, shoot us an email at *support@snark.ai*. 
+If you would like a pod with more persistant storage, shoot us an email at *support@snark.ai*. 
 
 Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, reach out to us at *support@snark.ai*.
 
 ## Usage Monitor
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
-
-## GPU spec
-Right now we are providing NVIDIA P106 GPUs. For machine learning, these GPUs are slighlty faster than NVIDIA K80. We're currently working on providing 1080's.
