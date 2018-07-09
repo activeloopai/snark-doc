@@ -95,6 +95,8 @@ pip3 install https://files.pythonhosted.org/packages/53/77/d3844b92e626f673cb86c
 ## File Transfer
 You can push/pull data to the pod by snark pull and snark push. Use it as a convenient replacement for `scp`. 
 
+#### Couldn't successfully schedule pod execution
+If you get a `Couldn't successfully schedule pod execution` error when trying to start your pod, it is likely that the given pod is already bound to another GPU type. Try changing the pod ID or the GPU type.  
 
 ### Download Files
 ```bash
