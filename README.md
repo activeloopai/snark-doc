@@ -18,7 +18,7 @@ It will ask you for username and password that you registered on the website.
 ```
 snark start
 ```
-This will create a pod with default configuration. By default, your pod will have one P106 GPU and will have pytorch preinstalled. You can create a custom pod by specifying the following parameters:
+This will create a pod with default configuration. By default, your pod will have a randomized id, one P106 GPU and pytorch preinstalled. You can create a custom pod by specifying the following parameters:
 ```
   -t, --pod_type [pytorch|tensorflow|theano|mxnet|caffe]
                                   Pody type (['pytorch', 'tensorflow',
@@ -27,9 +27,9 @@ This will create a pod with default configuration. By default, your pod will hav
   -s, --gpu_spec [P106|1080]  GPU type. Choose one of: ['P106',
                                   '1080']
 ```
-For example, the following command creates a Tensorflow pod with 2 P106 GPUs. The pod is named "tf_pod".
+For example, the following command creates a Tensorflow pod with 2 P106 GPUs.
 ```
-snark start tf_pod --pod_type tensorflow  -g 2
+snark start --pod_type tensorflow  -g 2
 ```
 
 You will have sudo access with password `admin`. We use key-based authentication and block password login to your pod so no need to worry about the weak password. 
@@ -42,14 +42,19 @@ Our available pod types:
  - **caffe** : caffe version 1.0 with cuda 8, cudnn 6 in python 3
 
 **Step 4**. Stop the pod by
+Use `snark ls` to list your active pods.
 ```
-snark stop my_pod
+snark ls
+````
+Use `snark stop` to stop the target pod:
+```
+snark stop {pod_id}
 ```
 
 
 **List active pods**
 
-Use `snark ls` to list your active pods.
+
 
 **Reconnect to an active pod**
 
