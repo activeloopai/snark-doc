@@ -146,5 +146,25 @@ If you would like a pod with more persistant storage, shoot us an email at *supp
 
 Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, reach out to us at *support@snark.ai*.
 
+## Jupyter
+To run jupyter notebook automatically
+```
+snark start --jupyter
+```
+You will need to copy the token from the CLI for security reasons. 
+
+## Ports
+To forward a custom port e.g. Tensorboard you can run as you would do in SSH
+```
+snark start -L 6006:localhost:6006
+```
+
+## Docker (beta)
+To execute custom docker you need to run. 
+```
+start -t custom --docker_image username/image:tag
+```
+Docker container must have Ubuntu base. Please contact us if you need other system configurations. 
+
 ## Usage Monitor
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
