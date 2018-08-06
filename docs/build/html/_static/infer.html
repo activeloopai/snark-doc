@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Snark AI &mdash; Snark 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="docs.snark.ai_static/infer.html"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Snark
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="40" height="40" /> Snark AI</a><ul>
+<li><a class="reference internal" href="#basic-usage">Basic Usage</a><ul>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#if-you-get-a-permission-denied-message">If you get a <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code> message:</a></li>
+<li><a class="reference internal" href="#if-you-don-t-have-sudo-access">If you don’t have <code class="docutils literal notranslate"><span class="pre">sudo</span></code> access:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Snark</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="40" height="40" /> Snark AI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_static/infer.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="img-src-https-avatars3-githubusercontent-com-u-34816118-s-200-v-4-data-canonical-src-hhttps-avatars3-githubusercontent-com-u-34816118-s-200-v-4-width-40-height-40-snark-ai">
+<span id="img-src-https-avatars3-githubusercontent-com-u-34816118-s-200-v-4-data-canonical-src-hhttps-avatars3-githubusercontent-com-u-34816118-s-200-v-4-width-40-height-40-snark-ai"></span><h1><img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="40" height="40" /> Snark AI<a class="headerlink" href="#img-src-https-avatars3-githubusercontent-com-u-34816118-s-200-v-4-data-canonical-src-hhttps-avatars3-githubusercontent-com-u-34816118-s-200-v-4-width-40-height-40-snark-ai" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-usage">
+<span id="basic-usage"></span><h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p><strong>Step 1</strong>. Install snark through pip3</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>If you’re having difficulties with installation, take a look at the <a class="reference external" href="#troubleshooting">troubleshooting</a> section.</p>
+<p><strong>Step 2</strong>. Go to <a class="reference external" href="https://hub.snark.ai">hub.snark.ai</a> to sign up. Then run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">login</span>
+</pre></div>
+</div>
+<p><strong>Step 3</strong> open Python and write</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">snark.infer</span> <span class="kn">import</span> <span class="n">model</span>
+
+<span class="n">alexnet</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;snarkai/AlexNet:latest&#39;</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">alexnet</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p><a name="troubleshooting"></a></p>
+<div class="section" id="troubleshooting">
+<span id="troubleshooting"></span><h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="if-you-get-a-permission-denied-message">
+<span id="if-you-get-a-permission-denied-message"></span><h4>If you get a <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code> message:<a class="headerlink" href="#if-you-get-a-permission-denied-message" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-you-don-t-have-sudo-access">
+<span id="if-you-don-t-have-sudo-access"></span><h4>If you don’t have <code class="docutils literal notranslate"><span class="pre">sudo</span></code> access:<a class="headerlink" href="#if-you-don-t-have-sudo-access" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p><strong>AND</strong> add the following to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PY_USER_BIN=$(python3 -c &#39;import site; print(site.USER_BASE + &quot;/bin&quot;)&#39;)
+export PATH=$PY_USER_BIN:$PATH
+</pre></div>
+</div>
+<p><strong>AND</strong> reload your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Snark AI.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = ''
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        0.1
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="jquery.js"></script>
+      <script type="text/javascript" src="underscore.js"></script>
+      <script type="text/javascript" src="doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="js/versions.js"></script>
+
+  
+
+  <script type="text/javascript" src="js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

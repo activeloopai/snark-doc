@@ -13,7 +13,6 @@ If you're having difficulties with installation, take a look at the [troubleshoo
 snark login
 ```
 
-
 **Step 3** open Python and write
 ``` python
 import numpy as np

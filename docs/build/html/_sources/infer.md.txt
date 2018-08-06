@@ -6,7 +6,7 @@
 ```
 pip3 install snark --user
 ```
-If you're having difficulties with installation, take a look at the [troubleshooting](#troubleshooting) section.
+If you're having difficulties with installation, take a look at the [troubleshooting](#troubleshooting) section. 
 
 **Step 2**. Go to [hub.snark.ai](https://hub.snark.ai) to sign up. Then run:
 ```

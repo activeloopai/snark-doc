@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic Usage &mdash; Snark 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Snark
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Basic Usage</a><ul>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#if-you-get-a-permission-denied-message">If you get a <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code> message:</a></li>
+<li><a class="reference internal" href="#if-you-don-t-have-sudo-access">If you don’t have <code class="docutils literal notranslate"><span class="pre">sudo</span></code> access:</a></li>
+<li><a class="reference internal" href="#snark-not-found">Snark Not Found</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#file-transfer">File Transfer</a><ul>
+<li><a class="reference internal" href="#couldn-t-successfully-schedule-pod-execution">Couldn’t successfully schedule pod execution</a></li>
+<li><a class="reference internal" href="#download-files">Download Files</a></li>
+<li><a class="reference internal" href="#upload-files">Upload Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#persistent-storage">Persistent Storage</a></li>
+<li><a class="reference internal" href="#jupyter">Jupyter</a></li>
+<li><a class="reference internal" href="#ports">Ports</a></li>
+<li><a class="reference internal" href="#docker-beta">Docker (beta)</a></li>
+<li><a class="reference internal" href="#usage-monitor">Usage Monitor</a></li>
+<li><a class="reference internal" href="#inference">Inference</a><ul>
+<li><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Snark</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Basic Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="40" height="40" />  Snark AI</p>
+<div class="section" id="basic-usage">
+<span id="basic-usage"></span><h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
+<p><strong>Step 1</strong>. Install snark through pip3</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span>
+</pre></div>
+</div>
+<p>If you’re having difficulties with installation, take a look at the <a class="reference external" href="#troubleshooting">troubleshooting</a> section.</p>
+<p><strong>Step 2</strong>. Go to <a class="reference external" href="https://lab.snark.ai">lab.snark.ai</a> to sign up. Sign in through the CLI</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">login</span>
+</pre></div>
+</div>
+<p>It will ask you for username and password that you registered on the website.</p>
+<p><strong>Step 3</strong>. You can start your pod by</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>This will create a pod with default configuration. By default, your pod will have a randomized id, one P106 GPU and pytorch preinstalled. You can create a custom pod by specifying the following parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="o">--</span><span class="n">pod_type</span> <span class="p">[</span><span class="n">pytorch</span><span class="o">|</span><span class="n">tensorflow</span><span class="o">|</span><span class="n">theano</span><span class="o">|</span><span class="n">mxnet</span><span class="o">|</span><span class="n">caffe</span><span class="p">]</span>
+                                  <span class="n">Pody</span> <span class="nb">type</span> <span class="p">([</span><span class="s1">&#39;pytorch&#39;</span><span class="p">,</span> <span class="s1">&#39;tensorflow&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;theano&#39;</span><span class="p">,</span> <span class="s1">&#39;mxnet&#39;</span><span class="p">,</span> <span class="s1">&#39;caffe&#39;</span><span class="p">])</span>
+  <span class="o">-</span><span class="n">g</span><span class="p">,</span> <span class="o">--</span><span class="n">gpu_count</span> <span class="n">INTEGER</span>         <span class="n">Number</span> <span class="n">of</span> <span class="n">GPUs</span>
+  <span class="o">-</span><span class="n">s</span><span class="p">,</span> <span class="o">--</span><span class="n">gpu_spec</span> <span class="p">[</span><span class="n">P106</span><span class="o">|</span><span class="mi">1080</span><span class="p">]</span>  <span class="n">GPU</span> <span class="nb">type</span><span class="o">.</span> <span class="n">Choose</span> <span class="n">one</span> <span class="n">of</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P106&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;1080&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For example, the following command creates a Tensorflow pod with 2 P106 GPUs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">start</span> <span class="o">--</span><span class="n">pod_type</span> <span class="n">tensorflow</span>  <span class="o">-</span><span class="n">g</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>You will have sudo access with password <code class="docutils literal notranslate"><span class="pre">admin</span></code>. We use key-based authentication and block password login to your pod so no need to worry about the weak password.</p>
+<p>Our available pod types:</p>
+<ul class="simple">
+<li><strong>tensorflow/keras</strong>: tensorflow version 1.8.0 with cuda 9, cudnn 7 in python3. Keras is installed in the pod.</li>
+<li><strong>pytorch/caffe2</strong>: pytorch version 0.4.0 with cuda 9, cudnn 7 in python 3. Caffe2 is also installed in the pod</li>
+<li><strong>mxnet</strong>: mxnet version 1.0.0 with cuda 9, cudnn 7 in python 3.</li>
+<li><strong>theano</strong>: theano version 0.8.2 with cuda 8, cudnn 5 in python 3</li>
+<li><strong>caffe</strong> : caffe version 1.0 with cuda 8, cudnn 6 in python 3</li>
+</ul>
+<p><strong>Step 4</strong>. Stop the pod by
+Use <code class="docutils literal notranslate"><span class="pre">snark</span> <span class="pre">ls</span></code> to list your active pods.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">ls</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">snark</span> <span class="pre">stop</span></code> to stop the target pod:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">stop</span> <span class="p">{</span><span class="n">pod_id</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>List active pods</strong></p>
+<p><strong>Reconnect to an active pod</strong></p>
+<p>To reconnect to an active pod, execute an <code class="docutils literal notranslate"><span class="pre">attach</span></code> command and specify the id of the pod that you want to resume.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">attach</span> <span class="n">my_pod</span>
+</pre></div>
+</div>
+<p><strong>Change pod hardware characteristics</strong>
+Currently, each pod is tied to the GPU time it was first run on. If you want to try to try different GPU types, change the pod_id:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">start</span> <span class="n">tf_pod2</span> <span class="o">--</span><span class="n">pod_type</span> <span class="n">tensorflow</span>  <span class="o">--</span><span class="n">gpu_spec</span> <span class="mi">1080</span>
+</pre></div>
+</div>
+<p><a name="troubleshooting"></a></p>
+<div class="section" id="troubleshooting">
+<span id="troubleshooting"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="if-you-get-a-permission-denied-message">
+<span id="if-you-get-a-permission-denied-message"></span><h3>If you get a <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code> message:<a class="headerlink" href="#if-you-get-a-permission-denied-message" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-you-don-t-have-sudo-access">
+<span id="if-you-don-t-have-sudo-access"></span><h3>If you don’t have <code class="docutils literal notranslate"><span class="pre">sudo</span></code> access:<a class="headerlink" href="#if-you-don-t-have-sudo-access" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p><strong>AND</strong> add the following to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PY_USER_BIN=$(python3 -c &#39;import site; print(site.USER_BASE + &quot;/bin&quot;)&#39;)
+export PATH=$PY_USER_BIN:$PATH
+</pre></div>
+</div>
+<p><strong>AND</strong> reload your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="snark-not-found">
+<span id="snark-not-found"></span><h3>Snark Not Found<a class="headerlink" href="#snark-not-found" title="Permalink to this headline">¶</a></h3>
+<p>If you tried all above and still get <code class="docutils literal notranslate"><span class="pre">snark</span> <span class="pre">not</span> <span class="pre">found</span></code> error message, try:</p>
+<ol class="simple">
+<li>Updating your pip3 through <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pip3</span></code></li>
+<li>Try installing specific version through tarball:</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">uninstall</span> <span class="n">snark</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">files</span><span class="o">.</span><span class="n">pythonhosted</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">e2</span><span class="o">/</span><span class="mi">25</span><span class="o">/</span><span class="mi">17</span><span class="n">f773c1a8c713fcc57f45a05554a4ac9ee5f0ff88418548e397eac06bb9</span><span class="o">/</span><span class="n">snark</span><span class="o">-</span><span class="mf">0.2</span><span class="o">.</span><span class="mf">3.1</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="file-transfer">
+<span id="file-transfer"></span><h1>File Transfer<a class="headerlink" href="#file-transfer" title="Permalink to this headline">¶</a></h1>
+<p>You can push/pull data to the pod by snark pull and snark push. Use it as a convenient replacement for <code class="docutils literal notranslate"><span class="pre">scp</span></code>.</p>
+<div class="section" id="couldn-t-successfully-schedule-pod-execution">
+<span id="couldn-t-successfully-schedule-pod-execution"></span><h2>Couldn’t successfully schedule pod execution<a class="headerlink" href="#couldn-t-successfully-schedule-pod-execution" title="Permalink to this headline">¶</a></h2>
+<p>If you get a <code class="docutils literal notranslate"><span class="pre">Couldn't</span> <span class="pre">successfully</span> <span class="pre">schedule</span> <span class="pre">pod</span> <span class="pre">execution</span></code> error when trying to start your pod, it is likely that the given pod is already bound to another GPU type. Try changing the pod ID or the GPU type.</p>
+</div>
+<div class="section" id="download-files">
+<span id="download-files"></span><h2>Download Files<a class="headerlink" href="#download-files" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snark pull my_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ snark pull --help
+Usage: snark pull <span class="o">[</span>OPTIONS<span class="o">]</span>
+
+  Transfer file from the pod to the localhost
+
+Options:
+  -r, --remote_path TEXT  Path to file on the Pod.
+  -l, --local_path TEXT   Path to file on <span class="nb">local</span> machine.
+  --help                  Show this message and exit.
+</pre></div>
+</div>
+</div>
+<div class="section" id="upload-files">
+<span id="upload-files"></span><h2>Upload Files<a class="headerlink" href="#upload-files" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snark push my_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ snark push --help
+Usage: snark push <span class="o">[</span>OPTIONS<span class="o">]</span>
+
+  Transfer file to the pod
+
+Options:
+  -l, --local_path TEXT   Path to file on <span class="nb">local</span> machine.
+  -r, --remote_path TEXT  Path to file on the Pod.
+  --help                  Show this message and exit.
+</pre></div>
+</div>
+<p>Note: if you want use <code class="docutils literal notranslate"><span class="pre">~'</span></code> or <code class="docutils literal notranslate"><span class="pre">\*</span></code> when specifying remote file path, please take them in quotes. Eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">push</span> <span class="n">kaggle_pod</span> <span class="o">-</span><span class="n">r</span> <span class="s2">&quot;~/test.txt&quot;</span> <span class="o">-</span><span class="n">l</span> <span class="n">test</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="persistent-storage">
+<span id="persistent-storage"></span><h1>Persistent Storage<a class="headerlink" href="#persistent-storage" title="Permalink to this headline">¶</a></h1>
+<p>Each pod comes with 10GB of persistant storage. This storage will be destroyed only when you use <code class="docutils literal notranslate"><span class="pre">snark</span> <span class="pre">terminate</span></code> to destroy your pod.</p>
+<p>If you would like a pod with more persistant storage, shoot us an email at <em>support&#64;snark.ai</em>.</p>
+<p>Common datasets from Kaggle competitions and more are accessible (read only) at <code class="docutils literal notranslate"><span class="pre">/datasets</span></code>. If there’s a dataset you would like to add/request, reach out to us at <em>support&#64;snark.ai</em>.</p>
+</div>
+<div class="section" id="jupyter">
+<span id="jupyter"></span><h1>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h1>
+<p>To run jupyter notebook automatically</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">start</span> <span class="o">--</span><span class="n">jupyter</span>
+</pre></div>
+</div>
+<p>You will need to copy the token from the CLI for security reasons.</p>
+</div>
+<div class="section" id="ports">
+<span id="ports"></span><h1>Ports<a class="headerlink" href="#ports" title="Permalink to this headline">¶</a></h1>
+<p>To forward a custom port e.g. Tensorboard you can run as you would do in SSH</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">start</span> <span class="o">-</span><span class="n">L</span> <span class="mi">6006</span><span class="p">:</span><span class="n">localhost</span><span class="p">:</span><span class="mi">6006</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="docker-beta">
+<span id="docker-beta"></span><h1>Docker (beta)<a class="headerlink" href="#docker-beta" title="Permalink to this headline">¶</a></h1>
+<p>To execute custom docker you need to run.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">-</span><span class="n">t</span> <span class="n">custom</span> <span class="o">--</span><span class="n">docker_image</span> <span class="n">username</span><span class="o">/</span><span class="n">image</span><span class="p">:</span><span class="n">tag</span>
+</pre></div>
+</div>
+<p>Docker container must have Ubuntu base. Please contact us if you need other system configurations.</p>
+</div>
+<div class="section" id="usage-monitor">
+<span id="usage-monitor"></span><h1>Usage Monitor<a class="headerlink" href="#usage-monitor" title="Permalink to this headline">¶</a></h1>
+<p>Login to <a class="reference external" href="https://lab.snark.ai">lab.snark.ai</a> to check the GPU hour used and credit left.</p>
+</div>
+<div class="section" id="inference">
+<span id="inference"></span><h1>Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-usage">
+<span id="id1"></span><h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p><strong>Step 1</strong>. Install snark through pip3</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>If you’re having difficulties with installation, take a look at the <a class="reference external" href="#troubleshooting">troubleshooting</a> section.</p>
+<p><strong>Step 2</strong>. Go to <a class="reference external" href="https://hub.snark.ai">hub.snark.ai</a> to sign up. Then run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snark</span> <span class="n">login</span>
+</pre></div>
+</div>
+<p><strong>Step 3</strong> open Python and write</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">snark.infer</span> <span class="kn">import</span> <span class="n">model</span>
+
+<span class="n">alexnet</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;snarkai/AlexNet:latest&#39;</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">alexnet</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p><a name="troubleshooting"></a></p>
+</div>
+<div class="section" id="troubleshooting">
+<span id="id2"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If you get a <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code> message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span>
+</pre></div>
+</div>
+<p>If you don’t have <code class="docutils literal notranslate"><span class="pre">sudo</span></code> access:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">snark</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p><strong>AND</strong> add the following to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PY_USER_BIN=$(python3 -c &#39;import site; print(site.USER_BASE + &quot;/bin&quot;)&#39;)
+export PATH=$PY_USER_BIN:$PATH
+</pre></div>
+</div>
+<p><strong>AND</strong> reload your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Snark AI.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = ''
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        0.1
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="_static/js/versions.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
