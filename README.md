@@ -64,7 +64,7 @@ snark attach my_pod
 ```
 
 **Change pod hardware characteristics**
-Currently, each pod is tied to the GPU time it was first run on. If you want to try to try different GPU types, change the pod_id:
+Currently, each pod is tied to the GPU time it was first run on. If you want to try different GPU types, change the pod_id:
 ```
 snark start tf_pod2 --pod_type tensorflow  --gpu_spec 1080
 ```
