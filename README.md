@@ -64,7 +64,7 @@ snark attach my_pod
 ```
 
 **Change pod hardware characteristics**
-Currently, each pod is tied to the GPU time it was first run on. If you want to try to try different GPU types, change the pod_id:
+Currently, each pod is tied to the GPU time it was first run on. If you want to try different GPU types, change the pod_id:
 ```
 snark start tf_pod2 --pod_type tensorflow  --gpu_spec 1080
 ```
@@ -140,9 +140,9 @@ snark push kaggle_pod -r "~/test.txt" -l test.txt
 ```
 
 ## Persistent Storage
-Each pod comes with 10GB of persistant storage. This storage will be destroyed only when you use `snark terminate` to destroy your pod. 
+Each pod comes with 10GB of persistent storage. This storage will be destroyed only when you use `snark terminate` to destroy your pod. 
 
-If you would like a pod with more persistant storage, shoot us an email at *support@snark.ai*. 
+If you would like a pod with more persistent storage, shoot us an email at *support@snark.ai*. 
 
 Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, reach out to us at *support@snark.ai*.
 
