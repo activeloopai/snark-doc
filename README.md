@@ -1,5 +1,8 @@
 
+
 # <img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="40" height="40" /> Snark AI
+
+[Update] Raw GPU access is no longer supported on the platform. Commands such as `snark start` will no longer work. Please sign up for the upcoming serverless training and deployment product on our main page. 
 
 ## Basic Usage
 **Step 1**. Install snark through pip3
