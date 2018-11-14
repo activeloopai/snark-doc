@@ -2,14 +2,14 @@
 
 ## Basic Usage
 **Step 1**. Install snark with pip3
-```
-pip3 install snark
+```bash
+  pip3 install snark
 ```
 In case of difficulties with installation, take a look at the [troubleshooting](#troubleshooting) section. 
 
 **Step 2**. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
-```
-snark login
+```bash
+  snark login
 ```
 
 **Step 3**. Create Yaml description
@@ -34,8 +34,8 @@ Save as `mnist.yml`.
 **Step 4**. Start the workflow
 
 Use `snark up` to start the workflow.
-```
-snark up -f mnist.yml
+```bash
+  snark up -f mnist.yml
 ```
 
 Snark up starts the experiment described by the yaml file. It spins up a cluster with 1 K80 GPU.
@@ -47,14 +47,14 @@ In general workflows executed by snark can be of different nature:
 **Step 5** List Experiments
 
 `snark ps` command will list the experiments along with their ids and states.
-```
+```bash
   snark ps
 ```
 Experiment Ids are used to tear down the workflows.
 
 **Step 6** Tear Down Experiments
 Snark workflows can be torn down using `snark down` command
-```
+```bash
   snark down {experiment_id}
 ```
 The `snark down` command shuts down all cloud resources utilized by the experiment workflow.
@@ -65,8 +65,8 @@ Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU usage and credits
 
 ### Experiments
 On the cli, use `snark ps` to keep track of all experiments.
-```
-snark ps
+```bash
+  snark ps
 ```
 
 ### Tasks
@@ -77,8 +77,8 @@ snark ps {experiment_id}
 
 ### Logs
 To get logs of running experiments 
-```
-snark logs {experiment_id}
+```bash
+  snark logs {experiment_id}
 ```
 
 ## Properties 
@@ -144,7 +144,7 @@ Snark Workflows comprise of commands. The commands are executed against the dock
       hardware:
         gpu: K80
         gpu_count: 2
-      commands: # an array of commands to execute against the image declared above
+      commands: # Commands is an array of commands to execute against the image declared above
         - git clone https://github.com/pytorch/examples
         - cd examples/mnist
         - python main.py
@@ -180,29 +180,30 @@ experiments:
 ### Troubleshooting
 
 #### If you get a `Permission denied` message:
-```
-sudo pip3 install snark
+```bash
+  sudo pip3 install snark
 ```
 #### If you don't have `sudo` access:
+```bash
+  pip3 install snark --user
 ```
-pip3 install snark --user
-```
+
 **AND** add the following to your `~/.bashrc` file:
-```
-export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
-export PATH=$PY_USER_BIN:$PATH
+```bash
+  export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
+  export PATH=$PY_USER_BIN:$PATH
 ```
 **AND** reload your `~/.bashrc`:
-```
-source ~/.bashrc
+```bash
+  source ~/.bashrc
 ```
 #### Snark Not Found
 If you tried all above and still get `snark not found` error message, try:
 1) Updating your pip3 through `pip3 install --upgrade pip3`
 2) Try installing specific version through tarball:
-```
-pip3 uninstall snark
-pip3 install https://files.pythonhosted.org/packages/6b/c4/1112f032a3d90686d757e5b0b325564a047488fc74fa43a138148dc2b8a5/snark-0.3.2.0.tar.gz
+```bash
+  pip3 uninstall snark
+  pip3 install https://files.pythonhosted.org/packages/6b/c4/1112f032a3d90686d757e5b0b325564a047488fc74fa43a138148dc2b8a5/snark-0.3.2.0.tar.gz
 ```
 
 In case of questions or issues please contact us at support@snark.ai
