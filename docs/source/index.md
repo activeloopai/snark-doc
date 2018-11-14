@@ -1,7 +1,7 @@
 
 
 ## Basic Usage
-**Step 1**. Install snark through pip3
+**Step 1**. Install snark with pip3
 ```
 pip3 install snark
 ```
@@ -15,19 +15,19 @@ snark login
 **Step 3**. Create Yaml description
 
 Snark uses yaml training workflow descriptions. Below is a basic MNIST example. 
-```
+```yaml
   version: 1
   experiments:
     mnist:
       image: pytorch/pytorch:latest
       hardware:
-        gpu: k80
+        gpu: K80
       command:
         - git clone https://github.com/pytorch/examples
         - cd examples/mnist
         - python main.py
 ```
-This yaml file describes an `mnist` experiment which uses _pytorch_ on a single k80 GPU.
+This yaml file describes an `mnist` experiment which uses _pytorch_ on a single _K80 GPU_.
 The workflow runs as a combination of three commands described by the file.
 Save as `mnist.yml`.
 
@@ -38,8 +38,11 @@ Use `snark up` to start the workflow.
 snark up -f mnist.yml
 ```
 
-Snark up starts the experiment described Yaml file. It will spin up a cluster with 1 k80 GPU.
-Workflows can be of different nature: sing GPU training, distributed training, hyperparameter search.
+Snark up starts the experiment described by the yaml file. It spins up a cluster with 1 K80 GPU.
+In general workflows executed by snark can be of different nature:
+- single-GPU ML training 
+- distributed ML training 
+- hyperparameter search
 
 **Step 5** List Experiments
 
@@ -47,20 +50,21 @@ Workflows can be of different nature: sing GPU training, distributed training, h
 ```
   snark ps
 ```
-Experiment Ids are to be used to tear down the workflows.
+Experiment Ids are used to tear down the workflows.
 
-**Step 6** Tear Down experiments
+**Step 6** Tear Down Experiments
 Snark workflows can be torn down using `snark down` command
 ```
   snark down {experiment_id}
 ```
-snark down shuts down all cloud resources utilized by the workflow.
+The `snark down` command shuts down all cloud resources utilized by the experiment workflow.
+
 
 ## Monitoring
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU usage and credits left.
 
 ### Experiments
-On the cli, use `snark ps` to keep track of all experiment.
+On the cli, use `snark ps` to keep track of all experiments.
 ```
 snark ps
 ```
@@ -83,10 +87,10 @@ Snark executes serverless ML workflows described in Yaml files.
 This section walks through properties that can be used in the Yaml file.
 
 ### Multiple Experiments
-Snark executes experiments described in the Yaml file. Those experiments are ML workflows such as model training, hyper parameter search etc.
+Snark executes experiments described in Yaml file. Those experiments are ML workflows such as model training, hyper parameter search etc.
 
-Here is the way to declare them in the Yaml file:
-```
+Here is how to declare them in the Yaml file:
+```yaml
   version: 1
   experiments:
     yolo: # the experiment name
@@ -101,27 +105,28 @@ Here is the way to declare them in the Yaml file:
 ```
 `snark ps` will show the experiment ids and states after they are run.
 
+
 ### Docker Image
 
 Snark executes the workflow commands against the given docker image.
-_Currently only public images are accepted_
-```
+**_Note:_** _Currently only public images are accepted_
+```yaml
   version: 1
   experiments:
     yolo:
-      image: pytorch/pytorch # if no tag is provided, snark will pull :latest
+      image: pytorch/pytorch # if no tag is provided, snark will pull :latest image
 ```
 
 ### Multiple GPUs
 This property describes the hardware to run the experiment on. 
-```
+```yaml
   version: 1
   experiments:
-    yolo: # experiment name
+    yolo:
       image: pytorch/pytorch 
       hardware:
-        gpu: K80
-        gpu_count: 2
+        gpu: K80 # use K80 GPU
+        gpu_count: 2 # use 2 K80 GPUs
 ```
 `gpu` is the name of the gpu to use
 `gpu_count` describes the number of gpus for the given experiment to run on. By default it's value is **1**.
@@ -131,7 +136,7 @@ Supported GPUs are K80 and V100 and the supported `gpu_count`s for them are **(1
 
 ### Commands
 Snark Workflows comprise of commands. The commands are executed against the docker image provided.
-```
+```yaml
   version: 1
   experiments:
     yolo:
@@ -144,13 +149,13 @@ Snark Workflows comprise of commands. The commands are executed against the dock
         - cd examples/mnist
         - python main.py
 ```
-The above example demonstrates how snark workflows get executed: using provided image and executing the given commands on that image.
+The above example demonstrates how snark workflows are executed: using provided image and running the given commands on that image.
 
 
 ### Hyperparameter search
 It is possible to sample from discrete or continous range of parameters. You would need to provide the sampling method, number of samples, number of parallel workers and variables in the command execution list. Params are templated in commands using double handlebars `{{param}}`.
 
-```
+```yaml
 version: 1
 experiments:
   mnist_hyperparam_search:
