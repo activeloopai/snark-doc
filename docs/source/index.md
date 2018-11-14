@@ -144,7 +144,7 @@ Snark Workflows comprise of commands. The commands are executed against the dock
       hardware:
         gpu: K80
         gpu_count: 2
-      commands: # Commands is an array of commands to execute against the image declared above
+      commands: # an array of commands to execute against the image declared above
         - git clone https://github.com/pytorch/examples
         - cd examples/mnist
         - python main.py
