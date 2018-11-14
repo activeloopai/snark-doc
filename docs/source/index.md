@@ -1,12 +1,15 @@
 
-<img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="40" height="40" />  Snark AI
+
+# <img src="https://avatars3.githubusercontent.com/u/34816118?s=200&v=4" data-canonical-src="hhttps://avatars3.githubusercontent.com/u/34816118?s=200&v=4" width="40" height="40" /> Snark AI
+
+[Update] Raw GPU access is no longer supported on the platform. Commands such as `snark start` will no longer work. Please see the docs below for the new serverless training and deployment product we have released.
 
 ## Basic Usage
 **Step 1**. Install snark through pip3
 ```
 pip3 install snark
 ```
-If you're having difficulties with installation, take a look at the [troubleshooting](#troubleshooting) section.
+In case of difficulties with installation, take a look at the [troubleshooting](#troubleshooting) section. 
 
 **Step 2**. Go to [lab.snark.ai](https://lab.snark.ai) to sign up. Sign in through the CLI
 ```
@@ -14,60 +17,48 @@ snark login
 ```
 It will ask you for username and password that you registered on the website.
 
-**Step 3**. You can start your pod by
+**Step 3**. Create Yaml description
+
+Snark uses yaml trainig workflow descriptions. Below is a basic MNIST example. 
 ```
-snark start
+  version: 1
+  experiments:
+    mnist:
+      image: pytorch/pytorch:latest
+      hardware:
+        gpu: k80
+      command:
+        - git clone https://github.com/pytorch/examples
+        - cd examples/mnist
+        - python main.py
 ```
-This will create a pod with default configuration. By default, your pod will have a randomized id, one P106 GPU and pytorch preinstalled. You can create a custom pod by specifying the following parameters:
+This yaml file describes an `mnist` experiment which uses _pytorch_ on a single k80 GPU.
+The workflow runs as a combination of the three commands described by the file.
+Save as mnist.yml
+
+**Step 4**. Start the workflow
+Use `snark up` to start the workflow.
 ```
-  -t, --pod_type [pytorch|tensorflow|theano|mxnet|caffe]
-                                  Pody type (['pytorch', 'tensorflow',
-                                  'theano', 'mxnet', 'caffe'])
-  -g, --gpu_count INTEGER         Number of GPUs
-  -s, --gpu_spec [P106|1080]  GPU type. Choose one of: ['P106',
-                                  '1080']
-```
-For example, the following command creates a Tensorflow pod with 2 P106 GPUs.
-```
-snark start --pod_type tensorflow  -g 2
+snark up -f mnist.yml
 ```
 
-You will have sudo access with password `admin`. We use key-based authentication and block password login to your pod so no need to worry about the weak password.
+Snark up starts the experiment described Yaml file. It will spin up a cluster with 1 k80 GPU.
+Workflows can be of different nature: sing GPU training, distributed training, hyperparameter search.
 
-Our available pod types:  
- - **tensorflow/keras**: tensorflow version 1.8.0 with cuda 9, cudnn 7 in python3. Keras is installed in the pod.
- - **pytorch/caffe2**: pytorch version 0.4.0 with cuda 9, cudnn 7 in python 3. Caffe2 is also installed in the pod
- - **mxnet**: mxnet version 1.0.0 with cuda 9, cudnn 7 in python 3.
- - **theano**: theano version 0.8.2 with cuda 8, cudnn 5 in python 3
- - **caffe** : caffe version 1.0 with cuda 8, cudnn 6 in python 3
+**Step 5** List Experiments
 
-**Step 4**. Stop the pod by
-Use `snark ls` to list your active pods.
+`snark ps` command will list the experiments along with their ids and states.
 ```
-snark ls
-````
-Use `snark stop` to stop the target pod:
+  snark ps
 ```
-snark stop {pod_id}
+Experiment Ids are to be used to tear down the workflows.
+
+**Step 6** Tear Down experiments
+Snark workflows can be torn down using `snark down` command
 ```
-
-
-**List active pods**
-
-
-
-**Reconnect to an active pod**
-
-To reconnect to an active pod, execute an `attach` command and specify the id of the pod that you want to resume.
+  snark down {experiment_id}
 ```
-snark attach my_pod
-```
-
-**Change pod hardware characteristics**
-Currently, each pod is tied to the GPU time it was first run on. If you want to try to try different GPU types, change the pod_id:
-```
-snark start tf_pod2 --pod_type tensorflow  --gpu_spec 1080
-```
+snark down shuts down all cloud resources utilized by the workflow.
 
 <a name="troubleshooting"></a>
 ### Troubleshooting
@@ -97,117 +88,120 @@ If you tried all above and still get `snark not found` error message, try:
 pip3 uninstall snark
 pip3 install https://files.pythonhosted.org/packages/e2/25/17f773c1a8c713fcc57f45a05554a4ac9ee5f0ff88418548e397eac06bb9/snark-0.2.3.1.tar.gz
 ```
-## File Transfer
-You can push/pull data to the pod by snark pull and snark push. Use it as a convenient replacement for `scp`.
 
-#### Couldn't successfully schedule pod execution
-If you get a `Couldn't successfully schedule pod execution` error when trying to start your pod, it is likely that the given pod is already bound to another GPU type. Try changing the pod ID or the GPU type.  
+## YAML File Properties 
 
-### Download Files
-```bash
-snark pull my_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
+Snark executes serverless ML workflows described in Yaml files. 
+This section walks through properties that can be used in the Yaml file.
+
+### Experiments
+Snark executes experiments described in the Yaml file. Those experiments are ML workflows such as model training, hyper parameter search etc.
+Here is the way to declare them in the Yaml file:
 ```
-```bash
-$ snark pull --help
-Usage: snark pull [OPTIONS]
+  version: 1
+  experiments:
+    yolo: # the experiment name
+      # here go the details of the workflow
+      ...
+    my_second_experiment:
+      # description of another experiment
+      ...
+    third_experiment:
+      ...
 
-  Transfer file from the pod to the localhost
-
-Options:
-  -r, --remote_path TEXT  Path to file on the Pod.
-  -l, --local_path TEXT   Path to file on local machine.
-  --help                  Show this message and exit.
 ```
+`snark ps` will show the experiment ids and states after they are run.
 
-### Upload Files
-```bash
-snark push my_pod -r /path/to/remote/file.tar.gx -l /path/to/local/file.tar.gx
-```
-```bash
-$ snark push --help
-Usage: snark push [OPTIONS]
+### Docker Image
 
-  Transfer file to the pod
-
-Options:
-  -l, --local_path TEXT   Path to file on local machine.
-  -r, --remote_path TEXT  Path to file on the Pod.
-  --help                  Show this message and exit.
+Snark executes the workflow commands against the given docker image.
+_Currently only public images are accepted_
 ```
-Note: if you want use `~'` or `\*` when specifying remote file path, please take them in quotes. Eg:
-```
-snark push kaggle_pod -r "~/test.txt" -l test.txt
+  version: 1
+  experiments:
+    yolo:
+      image: pytorch/pytorch # if no tag is provided, snark will pull :latest
 ```
 
-## Persistent Storage
-Each pod comes with 10GB of persistant storage. This storage will be destroyed only when you use `snark terminate` to destroy your pod.
+### Hardware
+This property describes the hardware to run the experiment on. 
+```
+  version: 1
+  experiments:
+    yolo: # experiment name
+      image: pytorch/pytorch 
+      hardware:
+        gpu: K80
+        gpu_count: 2
+```
+`gpu` is the name of the gpu to use
+`gpu_count` describes the number of gpus for the given experiment to run on. By default it's value is **1**.
 
-If you would like a pod with more persistant storage, shoot us an email at *support@snark.ai*.
+Supported GPUs are K80 and V100 and the supported `gpu_count`s for them are **(1, 8, 16)** and **(1, 4, 8)** respectively
 
-Common datasets from Kaggle competitions and more are accessible (read only) at `/datasets`. If there's a dataset you would like to add/request, reach out to us at *support@snark.ai*.
 
-## Jupyter
-To run jupyter notebook automatically
+### Commands
+Snark Workflows comprise of commands. The commands are executed against the docker image provided.
 ```
-snark start --jupyter
+  version: 1
+  experiments:
+    yolo:
+      image: pytorch/pytorch 
+      hardware:
+        gpu: K80
+        gpu_count: 2
+      commands: # Commands is an array of commands to execute against the image declared above
+        - git clone https://github.com/pytorch/examples
+        - cd examples/mnist
+        - python main.py
 ```
-You will need to copy the token from the CLI for security reasons.
+The above example demonstrates how snark workflows get executed: using provided image and executing the given commands on that image.
 
-## Ports
-To forward a custom port e.g. Tensorboard you can run as you would do in SSH
+### Parameters
+
+It is possible to parameterize the commands in the snark workflow yaml file.
+
 ```
-snark start -L 6006:localhost:6006
+  version: 1
+  experiments:
+    yolo:
+      image: pytorch/pytorch:latest
+      hardware:
+        gpu: K80
+        gpu_count: 2
+      parameters: # describes params to be utilized in commands
+        mnist_github: https://github.com/pytorch/examples
+        other_param: ...
+      commands: 
+        - git clone {{mnist_github}}
+        - cd examples/mnist
+        - python main.py
+``` 
+Params are templated in commands using double handlebars `{{param}}`.
+
+
+### Full Yaml Example
+Here is the full yaml example for MNIST
+
+```
+  version: 1
+  experiments:
+    yolo:
+      image: pytorch/pytorch 
+      hardware:
+        gpu: K80
+        gpu_count: 2
+      parameters: # describes params to be utilized in commands
+        mnist_github: https://github.com/pytorch/examples
+        other_param: ...
+      commands: 
+        - git clone {{mnist_github}}
+        - cd examples/mnist
+        - python main.py
 ```
 
-## Docker (beta)
-To execute custom docker you need to run.
-```
-start -t custom --docker_image username/image:tag
-```
-Docker container must have Ubuntu base. Please contact us if you need other system configurations.
 
 ## Usage Monitor
 Login to [lab.snark.ai](https://lab.snark.ai) to check the GPU hour used and credit left.
 
-## Inference
-### Basic Usage
-**Step 1**. Install snark through pip3
-```
-pip3 install snark --user
-```
-If you're having difficulties with installation, take a look at the [troubleshooting](#troubleshooting) section.
-
-**Step 2**. Go to [hub.snark.ai](https://hub.snark.ai) to sign up. Then run:
-```
-snark login
-```
-
-**Step 3** open Python and write
-``` python
-import numpy as np
-from snark.infer import model
-
-alexnet = model(model_name='snarkai/AlexNet:latest')
-output = alexnet.infer(np.zeros([1, 3, 224, 224]))
-```
-
-<a name="troubleshooting"></a>
-### Troubleshooting
-
-If you get a `Permission denied` message:
-```
-sudo pip3 install snark
-```
-If you don't have `sudo` access:
-```
-pip3 install snark --user
-```
-**AND** add the following to your `~/.bashrc` file:
-```
-export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
-export PATH=$PY_USER_BIN:$PATH
-```
-**AND** reload your `~/.bashrc`:
-```
-source ~/.bashrc
-```
+On the cli, use `snark ps` to keep track of experiments run.
